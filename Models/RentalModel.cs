@@ -41,10 +41,10 @@ namespace RealEstateData.Models
         public string price { get; set; }
 
         [DataMember]
-        public int beds { get; set; }
+        public string beds { get; set; }
 
         [DataMember(Order = 9)]
-        public float baths { get; set; }
+        public string baths { get; set; }
 
         [DataMember(Order = 10)]
         public string sqft { get; set; }
