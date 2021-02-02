@@ -32,7 +32,7 @@ namespace RealEstateData.Converters
                 {
                     var stringBeds = rentalModel.beds.Substring(0, dashIndex);
 
-                    return (stringBeds == "S") ? 0.5f : Convert.ToInt32(stringBeds);
+                    return (stringBeds == "S") ? 0.0f : Convert.ToInt32(stringBeds);
                 }
                 else
                 {

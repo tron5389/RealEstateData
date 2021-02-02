@@ -13,7 +13,7 @@ namespace RealEstateData.Helpers
         {
         }
 
-        public void RightToCSV(List<RentalKPIModel> listings)
+        public void RightToCSV(List<RentalKPIModel> listings, string zipCode)
         {
             using (var mem = new MemoryStream())
             using (TextWriter writer = new StreamWriter(mem))
@@ -55,27 +55,7 @@ namespace RealEstateData.Helpers
                 }
                 writer.Flush();
                 var result = Encoding.UTF8.GetString(mem.ToArray());
-                File.WriteAllText("C:\\Users\\tomro\\OneDrive\\Documents\\RentalListings\\RentalsListTest_30312.csv", result);
-                Console.WriteLine(result);
-            }
-        }
-
-        public void WriteToCSV(RentalKPIModel[] listings)
-        {
-            using (var mem = new MemoryStream())
-            using (TextWriter writer = new StreamWriter(mem))
-            using (var csvWriter = new CsvWriter(writer, cultureInfo: System.Globalization.CultureInfo.CurrentCulture))
-            {
-                csvWriter.Configuration.Delimiter = ";";
-                csvWriter.Configuration.HasHeaderRecord = false;
-                csvWriter.Configuration.AutoMap<RentalKPIModel>();
-
-                csvWriter.WriteHeader<RentalKPIModel>();
-                csvWriter.WriteRecords(listings);
-
-                writer.Flush();
-                var result = Encoding.UTF8.GetString(mem.ToArray());
-                File.WriteAllText("C:\\Users\\tomro\\OneDrive\\Documents\\RentalListings\\RentalsList_30312.csv", result);
+                File.WriteAllText("C:\\Users\\tomro\\OneDrive\\Documents\\RentalListings\\RentalsListTest_" + zipCode + ".csv", result);
                 Console.WriteLine(result);
             }
         }

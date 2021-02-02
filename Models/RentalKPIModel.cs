@@ -4,6 +4,7 @@ namespace RealEstateData.Models
 {
     public class RentalKPIModel
     {
+        public int RentalKPIModelId { get; set; }
         public string PropertyId { get; set; }
         public string ListingId { get; set; }
         public string Address { get; set; }
